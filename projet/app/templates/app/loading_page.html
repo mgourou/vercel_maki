@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block head_content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki 2.0 - Chargement</title>
+
+    <!-- Favicon
+    ================================================== -->
+<link rel="apple-touch-icon" sizes="180x180" href={% static 'app/img/icon_sushi.png' %}>
+<link rel="icon" type="image/png" sizes="16x16" href={% static 'app/img/icon_sushi.png' %}>
+
+    <!-- Template Main CSS File -->
+    <link href={% static "app/css/style.css" %} rel="stylesheet">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+{% endblock head_content %}
+
+<main style="background-color: black;">
+    <div class="loading-container">
+        <!-- <img src={{loading_data.image.url}} alt=""> -->
+        <!-- <h1>{{ loading_data.title }}</h1> -->
+        <h1>
+            jezoijfhezoifhezoi
+        </h1>
+    </div>
+</main>
+
+{% block content %}
+
+<script src={% static "app/js/main.js" %}></script>
+  
+{% endblock content %}

@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load  static %}
+
+{% block head_content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maki 2.0 - Plats</title>
+
+    <!-- Favicon
+    ================================================== -->
+<link rel="apple-touch-icon" sizes="180x180" href={% static 'app/img/icon_sushi.png' %}>
+<link rel="icon" type="image/png" sizes="16x16" href={% static 'app/img/icon_sushi.png' %}>
+
+    <!-- Template Main CSS File -->
+    <link href={% static "app/css/style.css" %} rel="stylesheet">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+{% endblock head_content %}
+
+
+{% block content %}
+
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg bg-black navbar-dark ">
+        <div class="container w-75">
+          <a class="navbar-brand" href="{% url 'homeFR' %}">
+            <img class="img_logo" src={% static "app/img/logo_maki.png" %} alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-light hovera" aria-current="page" href="{% url 'homeFR' %}">Retour à l'accueil</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+
+
+<main>
+    <section class="section1_plat">
+        <div class="section1_btn_back">
+            <a href="{% url 'productsFR' %}"><button class="btn_plat"><i class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Retour</button></a>
+        </div>
+        <div class="section1_plat_title1">
+            <h1>{{plat.nom}}</h1>
+        </div>
+        <div class="section1_plat_big_div">
+            <div class="section1_plat_img">
+                <img src={% static 'app/img/plats/plat1.jpg'%} alt="{{plat.nom}}">
+            </div>
+            <div class="section1_plat_text">
+                <div class="section1_plat_text_div">
+                    <div class="section1_plat_title">
+                        <span>{{plat.type_plat}}</span>
+                    </div>
+                    <div class="section1_plat_title">
+                        <span>Ingredients :</span>
+                        <span>{% for ingredient in plat.ingredients.all %}
+                            {{ ingredient.nom }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                        </span>
+                    </div>
+                    <div class="section1_plat_title">
+                        <span>Prix :</span>
+                        <span>{{plat.prix}} €</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="section2_plat">
+        <div class="d-flex gap-3">
+            <button>Description</button>
+            <button>Avis</button>
+        </div>
+    </section> -->
+</main>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white">
+
+  <div class="footer_div">
+      <!-- Section: Social media -->
+      <div class="footer_logo_social">
+          <div>
+              <!-- Facebook -->
+              <div class="d-flex justify-content-center align-items-center">
+                  <a class="btn btn-floating " target="_blank"
+                      href="https://www.facebook.com/profile.php?id=100075543893236" role="button"><img src={% static 'app/img/facebook.svg' %} alt=""></a>
+
+                  <!-- Instagram -->
+                  <a class="btn btn-floating ms-3" target="_blank"
+                      href="https://www.instagram.com/maki_2_0/" role="button"><img src={% static 'app/img/instagram.svg' %} alt=""></a>
+              </div>
+
+          </div>
+      </div>
+      <!-- Section: Social media -->
+
+
+      <!-- Copyright -->
+      <div class="footer_text" style="background-color: rgba(0, 0, 0, 0.2)">
+          <a href="" class="no_decoration"><span>Conditions générales de ventes</span></a>
+          <span> Fait par <a class="no_decoration" target="_blank"
+                  href="https://www.linkedin.com/in/mohamed-gourou-a09417270/" style="color: #ef6036">Shb</a></span>
+          <span>Tous droits réservés © 2023</span>
+      </div>
+      <div class="footer_logo_halal" style="background-color: rgba(0, 0, 0, 0.2)">
+          <img src={% static 'app/img/logo_halal.png' %} alt="">
+      </div>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- Template Main JS File -->
+<script src={% static "app/js/main.js" %}></script>
+
+  
+{% endblock content %}
